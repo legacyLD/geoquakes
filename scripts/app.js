@@ -19,9 +19,9 @@ $(document).on("ready", function() {
         place: quakeFeatures.properties.place,
       });
       $('#quake-html').append(quakeHtml);
-      console.log(quakeHtml);
+      //console.log(quakeHtml);
     });
-    console.log(quakeFeatures);
+    //console.log(quakeFeatures);
   };
   function onError() {
     console.log("USGS query did not work!");
