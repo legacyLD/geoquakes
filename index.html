@@ -17,9 +17,6 @@
     <!-- Google Maps API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
 
-    <!-- USGS API -->
-    <script type="text/javascript" src="http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson"></script>
-
     <!-- Handlebars -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
@@ -35,9 +32,24 @@
             <div id="map"></div>
           </div>
           <div class="col-md-6">
-            <div id="info">
+            <!--*********HTML example of how our earthquake list will dispaly**********
+            <ul>
+              <li>M 5.0 - 127km ESE of Tadine, New Calodonia</li>
+              <li>M 5.8 - 176km WSW of city, country</li>
+              <li>M 6.1 - 210km NNE of othercity, othercountry</li>
+            </ul>
+            -->
+            <!-- <p>M 4.2 - 1km ESE of Fontana, California / 123 hours ago </p> -->
+
+            <div>
               <h1>Earthquakes from the past week:</h1>
-              <!-- <p>M 4.2 - 1km ESE of Fontana, California / 123 hours ago </p> -->
+              <ul id="quake-html">
+              </ul>
+                <script id="quake-list" type="text/x-handlebars-template">
+                  <li>Mag:{{mag}} - Location:{{place}}</li>
+                  <li>Mag:{{mag}} - Location:{{place}}</li>
+                  <li>Mag:{{mag}} - Location:{{place}}</li>
+                </script>
             </div>
           </div>
         </div>
