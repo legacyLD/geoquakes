@@ -1,5 +1,5 @@
 // define globals
-var weekly_quakes_endpoint = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson";
+var weekly_quakes_endpoint = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson";
 
 $(document).on("ready", function() {
   //var sfLatLng = {lat: 0, lng: 0}
@@ -25,18 +25,23 @@ $(document).on("ready", function() {
         mag: quakeFeatures.properties.mag,
         place: quakeFeatures.properties.place,
       });
-      var dataLat = quakeFeatures.geometry.coordinates[0];
-      var dataLng = quakeFeatures.geometry.coordinates[1];
-      //var image = 'earthquake.png';
+/////////////////////////////////////////   MAP MARKERS  /////////////////////////////////////////
+      var dataLat = quakeFeatures.geometry.coordinates[1];
+      var dataLng = quakeFeatures.geometry.coordinates[0];
+      var image = {
+        url: 'reddot.png',
+        scaledSize: new google.maps.Size(8, 8),
+      };
       var marker = new google.maps.Marker({
       position: {
-        lat: quakeFeatures.geometry.coordinates[0],
-        lng: quakeFeatures.geometry.coordinates[1]
+        lat: quakeFeatures.geometry.coordinates[1],
+        lng: quakeFeatures.geometry.coordinates[0]
       },
       map: map,
-      //icon: image,
+      icon: image,
       title: quakeFeatures.properties.place
       });
+//////////////////////////////////////////   CONSOLE LOGS   ///////////////////////////////////////
       console.log(marker);
       console.log(dataLat);
       console.log(dataLng);
